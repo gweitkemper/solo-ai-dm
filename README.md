@@ -1,6 +1,6 @@
-# Solo D&D 5e AI Dungeon Master
+# Solo 5e AI Dungeon Master
 
-A structured AI Dungeon Master for solo D&D 5e campaigns, optimized for political intrigue, espionage, mystery, romance, and tactical combat.  
+A structured AI Dungeon Master for solo 5e campaigns, optimized for political intrigue, espionage, mystery, romance, and tactical combat.  
 Designed to run as a **ChatGPT Custom GPT** powered by:
 
 - A short core instruction file: `docs/gpt-instructions.md`
