@@ -74,10 +74,10 @@ When you open the GPT for the first time in a new conversation:
 ## Playing Sessions
 
 - The DM:
-  - Presents scenes with a **header + character block**, a **short rules reminder**, then narrative.
-  - Calls for rolls (e.g. “Roll Perception; tell me when you’re ready and I’ll roll”), waits for your confirmation, and then rolls virtually and shows the math.
+  - Presents scene narrative under a chapter heading, written in second person (“you”).
+  - Handles rolls using three flows: auto-rolls before presenting choices when the result shapes what you can perceive (Flow A); prompts for a roll after you choose an action that requires one (Flow B); rolls silently for passive background checks, revealing only what your character notices on a success (Flow C).
   - Ends major beats with a **choice menu**: A/B/C plus “D) Something else entirely — just tell me.”
-  - Appends a **📜 Session Log** each turn (location, time, party, NPCs, clues, quests).
+  - Shows a compact **character stat block** at the end of each response (HP, AC, resources, equipment, stats). Conditions appear only when one is active.
 
 - You:
   - Reply in natural language or by choosing A/B/C/D.
@@ -85,7 +85,16 @@ When you open the GPT for the first time in a new conversation:
 
     `(( Ask rules questions, tweak tone, enable web search, change who controls companions, etc. ))`
 
-  - Between sessions, copy the 📜 Session Log into your own notes.
+- **On-demand commands** — type these keywords at any time:
+
+  | Keyword | What you get |
+  |---|---|
+  | `rules` | Short rules reminder for the current situation |
+  | `log` | Session Log — copy this into your notes between sessions |
+  | `inventory` | Full categorized inventory with coin |
+  | `npcs` | NPC relationship tracker with current dispositions |
+  | `factions` | Faction tracker with goals and attitudes toward you |
+  | `stats` | Proficient skills, tool proficiencies, passive values |
 
 ---
 
@@ -105,18 +114,18 @@ Session 2+
   - Open a fresh chat with the same GPT  
   - Paste the starter block and say “Continue from the Current Situation & Hooks.”
 
-The **`output for new thread`** command makes the DM emit a reusable campaign starter (summary, current character block, key NPCs/factions, and current hooks) so you can safely move to a new chat when context gets long.
+The **`output for new thread`** command makes the DM emit a structured **CAMPAIGN STATE block** — a machine-readable snapshot of your campaign covering your character (with current HP and resources, not reset to full), companions, world state and in-world time, NPC relationships with current dispositions, active factions, open quest threads, ticking clocks, and the last scene. Paste the whole block at the top of a new chat to resume with full continuity. Verify the values look right before continuing — flag anything with a `?` that you want to correct.
 
 ---
 
 ## Files Overview
 
-| File                        | Purpose                                                                 |
-|-----------------------------|-------------------------------------------------------------------------|
-| `README.md`                 | This guide                                                             |
-| `docs/gpt-instructions.md` | Short “core” instructions to paste into the GPT builder                |
-| `docs/dm-rules.md`         | Full rules, Session Zero flow, party/character logic, and formats      |
-| `docs/examples.md`         | Example exploration, combat, and social scenes for style reference     |
+| File | Purpose |
+|---|---|
+| `README.md` | This guide |
+| `docs/gpt-instructions.md` | Short core instructions to paste into the GPT builder (references `dm-rules.md` as authority) |
+| `docs/dm-rules.md` | Full rules, Session Zero flow, combat, leveling, continuity, and annotated worked examples |
+| `docs/examples.md` | Clean unannotated play examples for style pattern-matching — supplementary to `dm-rules.md` |
 
 If you add your own house rules or examples, extend `dm-rules.md` and/or `examples.md` and bump your repo changelog.
 
@@ -133,4 +142,3 @@ If you add your own house rules or examples, extend `dm-rules.md` and/or `exampl
 ## License
 
 MIT. Fork, customize, and adapt for your own tables and solo campaigns.
-
