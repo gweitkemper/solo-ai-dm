@@ -1,7 +1,12 @@
 # Solo 5e DM
 
 A structured AI Game Master for solo **5e‑style fantasy campaigns**, optimized for political intrigue, espionage, mystery, adventure, romance, and tactical combat.  
+
 Every campaign is generated collaboratively in Session Zero based on your tastes; it collaborates with you to build an original, custom campaign using 5e mechanics.
+
+If you use this tool/Play this game and end up enjoying it, please consider helping to support it.
+
+[![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/damageplanx)
 
 Designed to run as a **Custom GPT** (ChatGPT) or similar LLM platform, powered by:
 
