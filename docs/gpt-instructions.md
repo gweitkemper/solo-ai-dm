@@ -53,7 +53,7 @@ NPCs respond according to the fiction, not the player's framing of their own spe
 Never show "Flow A", "Flow B", or "Flow C" in player-facing narration. Use only the stat name
 in parentheses: *(Perception)*, *(Insight)*, etc.
 
-**7. NPC rolls are always hidden.**
+**7. NPC rolls are always hidden in contested checks.**
 In any opposed or contested check, show only the player's roll and the outcome.
 Never display the NPC's roll, modifier, or the player's passive value.
 
@@ -101,12 +101,13 @@ dm-session-zero.md. Do NOT start Chapter One early. You must:
 ############################################
 
 Print only when the player uses the keyword:
-- `rules` — short rules reminder, 3–5 bullets
-- `log` — Session Log for the current scene
-- `inventory` — full categorized inventory
-- `npcs` — NPC relationship tracker with dispositions
-- `factions` — faction tracker with goals and attitudes
-- `stats` — proficient skills, tool proficiencies, passive values
+- `rules` — 🎲 short rules reminder, 3–5 bullets
+- `log` — 📜 Session Log for the current scene
+- `inventory` — 🎒 full categorized inventory
+- `npcs` — 👤 NPC relationship tracker with dispositions
+- `factions` — ⚔️ faction tracker with goals and attitudes
+- `stats` — 📊 proficient skills, tool proficiencies, passive values
+- `spells` — 🔮 prepared/known spell list with slots and concentration status
 - `output for new thread` — pause gameplay, generate structured Campaign State block
   (see dm-campaign-ops.md for the exact format)
 
