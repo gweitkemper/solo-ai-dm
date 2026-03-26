@@ -8,21 +8,26 @@ If you use this tool/play this game and end up enjoying it, please consider help
 
 [![](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/damageplanx)
 
-Designed to run as a **Custom GPT** (ChatGPT) or similar LLM platform, powered by:
+---
 
-- A core instruction file (always in context): `docs/gpt-instructions.md`
-- Three Knowledge base files (retrieved as needed):
-  - `docs/dm-core-rules.md` — format, flows, combat, NPC rules, worked examples
-  - `docs/dm-session-zero.md` — Session Zero, character creation, party building
-  - `docs/dm-campaign-ops.md` — leveling, loot, travel, rests, campaign continuity
+## Supported Platforms
+
+| Platform | Setup | Sharing | Best for |
+|---|---|---|---|
+| **ChatGPT** (Custom GPT) | Uses `gpt-instructions.md` | Publishable link — anyone can use | Public distribution |
+| **Claude** (Project) | Uses `claude-instructions.md` | Per-user only — each player sets up their own | Reliability, prose quality, long sessions |
+
+Both platforms use the same three rules files (`dm-core-rules.md`, `dm-session-zero.md`, `dm-campaign-ops.md`). Only the instructions file differs.
+
+**Which should I use?** If you want to share a link with friends, use ChatGPT. If you want the most reliable rule-following and strongest narrative prose — especially in long sessions — use Claude. Claude puts all files in full context every turn, so it never "forgets" rules that ChatGPT's retrieval system might miss.
 
 ---
 
-## Quick Start
+## Quick Start — ChatGPT
 
 ### 1. Create the Custom GPT
 
-1. Go to **ChatGPT → Explore GPTs → Create a GPT** (or your preferred LLM platform).
+1. Go to **ChatGPT → Explore GPTs → Create a GPT**.
 2. **Name** it something like: `Solo 5e Fantasy DM`.
 3. In the **Instructions** box, paste the entire content of:
 
@@ -51,22 +56,44 @@ Designed to run as a **Custom GPT** (ChatGPT) or similar LLM platform, powered b
 
 ---
 
+## Quick Start — Claude
+
+### 1. Create a Claude Project
+
+1. Go to **claude.ai → Projects → Create Project** (requires a Claude Pro subscription).
+2. **Name** it something like: `Solo 5e Fantasy DM`.
+3. In the **Project Instructions** box, paste the entire content of:
+
+   `docs/claude-instructions.md`
+
+4. In the **Project Knowledge** section, upload all three rules files:
+
+   - `docs/dm-core-rules.md`
+   - `docs/dm-session-zero.md`
+   - `docs/dm-campaign-ops.md`
+
+5. Start a new conversation within the Project to begin.
+
+> **Note:** Claude Projects aren't shareable as public links. Each player needs to create their own Project and upload the files. The tradeoff is better reliability — Claude loads all files into full context every turn, so the model always has access to every rule simultaneously.
+
+---
+
 ## Architecture
 
-The rules are split across four files, designed around how Custom GPTs actually retrieve information:
+The rules are split across multiple files per platform, designed for maintainability and (on ChatGPT) retrieval optimization:
 
-| File | Lives in | Retrieved when | Lines |
-|---|---|---|---|
-| `gpt-instructions.md` | Instructions box | **Every turn** (always in context) | ~120 |
-| `dm-core-rules.md` | Knowledge base | **Every turn** during active play | ~1,170 |
-| `dm-session-zero.md` | Knowledge base | **Start of campaign** only | ~420 |
-| `dm-campaign-ops.md` | Knowledge base | **Periodically** (leveling, rests, loot, thread export) | ~310 |
+| File | What it contains | When it's needed |
+|---|---|---|
+| `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
+| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 9 worked examples | Every turn during play |
+| `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign only |
+| `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
-**Why the split matters:** The Instructions box is always in context — the model sees it every turn. Knowledge files use retrieval — the system searches for relevant chunks based on the conversation. Splitting the rules means:
+**Why the split?**
 
-- **Session Zero content** (character creation, party building) doesn't pollute retrieval during play, when the model needs combat or NPC rules instead.
-- **The 10 most critical rules** live in `gpt-instructions.md` so they're never subject to retrieval luck — they're always present. These include player agency, NPC agency on player-declared actions, action chain processing, hidden NPC rolls, and drift correction.
-- **Related rules stay together** in the same file, so retrieval is more likely to pull a complete, coherent rule set rather than fragments from different sections.
+- On **ChatGPT**, Knowledge files use retrieval (RAG) — the system searches for relevant chunks per turn. Splitting means Session Zero content doesn't pollute combat retrieval, and related rules stay together for coherent chunk pulls.
+- On **Claude**, all Project Knowledge is loaded into full context every turn. The split still helps with organization and maintainability — but every rule is visible to the model at all times regardless.
+- On **both platforms**, the instructions file carries the 10 rules most likely to conflict with default model behavior (NPC agency, action chains, hidden rolls, etc.) as reinforcement that's always present.
 
 ---
 
@@ -74,7 +101,7 @@ The rules are split across four files, designed around how Custom GPTs actually 
 
 ### Session Zero (First Time in a New Chat)
 
-When you open the GPT for the first time in a new conversation:
+When you open a new conversation:
 
 1. The DM will **run Session Zero** (mandatory):
    - Ask about themes (political intrigue, espionage, horror, romance, etc.), tone, and content boundaries.
@@ -147,7 +174,7 @@ A simple loop for long campaigns:
 - Either continue in the same chat, or:
   1. Type: `output for new thread`
   2. Copy the generated Campaign State block
-  3. Open a fresh chat with the same GPT
+  3. Open a fresh conversation (same GPT or same Claude Project)
   4. Paste the block and say: *"Continue the campaign from the Last Scene."*
 
 The **`output for new thread`** command makes the DM emit a structured **Campaign State block** — a machine-readable snapshot covering your character (with current HP and resources, not reset to full), companions, world state and in-world time, NPC relationships with current dispositions, active factions, open quest threads, ticking clocks, and the last scene. Verify the values look right before continuing — anything the DM is uncertain about is flagged with a `?`.
@@ -158,23 +185,22 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 
 ## Files Overview
 
+```
+docs/
+├── gpt-instructions.md        # ChatGPT Instructions box
+├── claude-instructions.md      # Claude Project Instructions
+├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 9 worked examples
+├── dm-session-zero.md          # Session Zero, character creation, party building
+└── dm-campaign-ops.md          # Leveling, loot, travel, rests, world advancement, thread export
+```
+
 | File | Purpose |
 |---|---|
-| `README.md` | This guide |
-| `docs/gpt-instructions.md` | Core instructions for the GPT Instructions box — routing + 10 critical always-in-context rules |
-| `docs/dm-core-rules.md` | Format, roll flows, secrets handling, player declaration processing, combat, scene transitions, environmental hazards, NPC rules, conditions, interaction rules, and 9 worked examples |
-| `docs/dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary |
-| `docs/dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` command |
-
----
-
-## Customization Tips
-
-- **Change the vibe**: In Session Zero, emphasize different themes (e.g., heists and urban intrigue, planar weirdness, low-combat investigation).
-- **Adjust mid-campaign**: Use `(( meta ))` to change Campaign Constants at any time — shift tone, add or remove hard limits, adjust themes.
-- **Homebrew**: Describe homebrew races/subclasses during character creation; the DM will incorporate them as long as they're roughly 5e‑compatible.
-- **Strict vs soft rules**: The current configuration is **strict** — illegal builds must be fixed before play. If you prefer softer enforcement, tweak that in `dm-session-zero.md`.
-- **Ruleset choice**: The DM supports both **2014 (Classic)** and **2024 (Updated)** rules, selected during Session Zero. The model has stronger training on 2014 rules and will flag uncertainty more readily with 2024 mechanics.
+| `gpt-instructions.md` | ChatGPT: paste into the GPT Instructions box. Routes to Knowledge files, reinforces critical rules. |
+| `claude-instructions.md` | Claude: paste into Project Instructions. Same critical rules, adapted for full-context architecture. |
+| `dm-core-rules.md` | The main rules file — needed every turn during play. Upload as Knowledge (ChatGPT) or Project Knowledge (Claude). |
+| `dm-session-zero.md` | Session Zero and character creation. Upload as Knowledge / Project Knowledge. |
+| `dm-campaign-ops.md` | Leveling, loot, travel, rests, continuity. Upload as Knowledge / Project Knowledge. |
 
 ---
 
@@ -194,6 +220,16 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 | 7 | Action chain | Multiple declared actions resolved one step at a time |
 | 8 | Party combat | Mixed player/AI control, separate companion menus |
 | 9 | Level-up mid-campaign | Milestone announcement, subclass prompt, stat block update |
+
+---
+
+## Customization Tips
+
+- **Change the vibe**: In Session Zero, emphasize different themes (e.g., heists and urban intrigue, planar weirdness, low-combat investigation).
+- **Adjust mid-campaign**: Use `(( meta ))` to change Campaign Constants at any time — shift tone, add or remove hard limits, adjust themes.
+- **Homebrew**: Describe homebrew races/subclasses during character creation; the DM will incorporate them as long as they're roughly 5e‑compatible.
+- **Strict vs soft rules**: The current configuration is **strict** — illegal builds must be fixed before play. If you prefer softer enforcement, tweak that in `dm-session-zero.md`.
+- **Ruleset choice**: The DM supports both **2014 (Classic)** and **2024 (Updated)** rules, selected during Session Zero. The model has stronger training on 2014 rules and will flag uncertainty more readily with 2024 mechanics.
 
 ---
 
