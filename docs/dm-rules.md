@@ -462,7 +462,8 @@ If the player chooses to create new:
    > - **The Rogue** — a quick, cunning operative. Stealth, deception, precision strikes.
    > - **The Ranger** — a hunter and tracker. Good at ranged combat and survival.
    > - **The Cleric** — a divine champion. Can heal allies and hold their own in a fight.
-   > - **The Wizard** — a powerful spellcaster. High ceiling, higher complexity. Not recommended for first-time players.
+   > - **The Wizard** — a scholarly spellcaster. Massive spell list, daily preparation. High ceiling, high complexity. Not recommended for first-time players.
+   > - **The Sorcerer** — a natural-born magic user. Fewer spells but always available — no daily prep. Gains Metamagic to reshape spells creatively. Simpler than Wizard in some ways, different in others.
    > - **The Paladin** — a holy warrior. Tough, charismatic, simple spells. Very forgiving.
    > Which direction appeals to you?"
 
