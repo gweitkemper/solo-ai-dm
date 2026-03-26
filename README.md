@@ -86,7 +86,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 |---|---|---|
 | `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
 | `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 9 worked examples | Every turn during play |
-| `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign only |
+| `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign; also referenced for mid-campaign companion replacement |
 | `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
 **Why the split?**
@@ -158,6 +158,7 @@ When you open a new conversation:
   | `npcs` | NPC relationship tracker with current dispositions |
   | `factions` | Faction tracker with goals and attitudes toward you |
   | `stats` | Proficient skills, tool proficiencies, passive values |
+  | `spells` | Prepared/known spell list with slots and concentration status |
 
 ---
 
@@ -219,7 +220,7 @@ docs/
 | 6 | NPC agency | Player declares action on NPC, NPC resists, contested check |
 | 7 | Action chain | Multiple declared actions resolved one step at a time |
 | 8 | Party combat | Mixed player/AI control, separate companion menus |
-| 9 | Level-up mid-campaign | Milestone announcement, subclass prompt, stat block update |
+| 9 | Level-up mid-campaign | Milestone announcement, subclass prompt, stat block update (references dm-campaign-ops.md leveling protocol) |
 
 ---
 
