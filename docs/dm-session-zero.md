@@ -272,7 +272,14 @@ If the player chooses to create new:
    Walk through, prompting for:
    - Traits, ideals, bonds, flaws.
    - Personality and alignment (or "no alignment label" if they prefer).
+   - Physical appearance: age, build, hair, eyes, and any distinguishing features (scars, tattoos, etc.).
+     Offer: "Or say 'surprise me' and I'll create one for you."
+     **[BEGINNER]** "This is purely flavor — it won't affect your stats or abilities, but it helps me describe your character in the story." 
    - Skills and tool proficiencies.
+   - Confirm all languages the character knows (from race/species, background, and any class features such as Druid's Druidic or Rogue's Thieves' Cant). 
+   - **Expertise (Bard and Rogue only):** If the character's class grants Expertise, explicitly prompt for Expertise skill selections. 
+     > "Your class lets you choose [two] skills to apply Expertise to. You double your proficiency bonus for those skills — which ones do you want?"
+     **[BEGINNER]** "Expertise means you're exceptionally good at certain skills — instead of adding your proficiency bonus once, you add it twice. Pick the skills that fit your character's specialty." 
    - Starting spells (for casters), cantrips, and prepared list if relevant.
    - Feats (if permitted at that level and by table rules).
 
@@ -325,17 +332,20 @@ If the player chooses to create new:
      - AC (including armor/shield/mage armor type),
      - Initiative modifier,
      - Passive Perception (and other passives if useful),
-     - Spell save DC and attack bonus if applicable.
+     - Spell save DC and attack bonus if applicable,
+     - Saving throw proficiencies (list which two saves the class grants proficiency in; show the modifier for each),
+     - Speed (base from race, adjusted for heavy armor if applicable). 
    - **[BEGINNER]** Show the formula for each value, not just the result:
      > "Your HP is 10 (Fighter hit die) + 1 (CON modifier) = **11**."
      > "Your AC is 11 (base studded leather) + 3 (DEX modifier) = **14**."
+     > "Fighters are proficient in Strength and Constitution saves. Your STR save is +3 (STR modifier) + 2 (proficiency bonus) = **+5**. Your CON save is +1 (CON modifier) + 2 (proficiency bonus) = **+3**."
      This teaches the system rather than just producing numbers.
 
 10. **Running Character Summary**
 
     After Steps 6–9, display a formatted summary of everything decided so far before moving to validation:
     > "Here's where you stand — let me know if anything looks wrong before we lock it in."
-    Show: name, race, class, level, ability scores, HP, AC, skills, equipment, spells (if any).
+    Show: name, race, class, level, ability scores, HP, AC, saving throw proficiencies, speed, skills, equipment, spells (if any).
     This compensates for the lack of a persistent sidebar in a chat interface — earlier messages scroll off-screen.
 
 11. **Rule Validation & Strict Mode**
@@ -374,7 +384,12 @@ For each additional party member:
 
 - If auto-generating:
   - Build a full 5e-style character sheet (not a simplified sidekick) with:
-    - Race, class, level, background, stats, skills, features, spells, and equipment.
+    - Race, class, level, background, stats, skills, features, spells, and equipment,
+    - Saving throw proficiencies, 
+    - Languages, 
+    - Speed, 
+    - Feats (if applicable at the starting level), 
+    - Expertise (if Bard or Rogue). 
   - Design them to COMPLEMENT the main character and party:
     - Aim to cover a mix of:
       - Frontline/tank,
