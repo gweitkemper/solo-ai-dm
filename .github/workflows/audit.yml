@@ -1,0 +1,82 @@
+# .github/workflows/audit.yml
+# Runs the AI DM system audit on demand or on a schedule.
+# Creates a GitHub Issue with structured findings for review.
+
+name: AI DM Audit
+
+on:
+  # On-demand: create an issue with the "audit" label
+  issues:
+    types: [labeled]
+  # Scheduled: runs every other Monday at 9am CT
+  schedule:
+    - cron: '0 14 * * 1'  # 14:00 UTC = 9:00 AM CT, every Monday
+  # Manual trigger from Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    # For label trigger, only run if the label is "audit"
+    if: |
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && github.event.label.name == 'audit')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude Audit
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          model: claude-opus-4-6
+          prompt: |
+            You are an expert in tabletop RPG design, AI system prompt engineering, and solo TTRPG play systems. You are auditing the AI Dungeon Master project in this repository.
+
+            Read every file in docs/ completely before responding. Also read README.md and CLAUDE.md.
+
+            The system runs solo D&D 5e campaigns on two platforms:
+            - Claude Projects (all 3 rules files as full context)
+            - ChatGPT Custom GPT (rules files via RAG retrieval — not guaranteed full context)
+
+            Analyze all files against these dimensions. For each finding include: Location (file, section), Issue, Severity (Critical/High/Medium/Low), and Recommendation.
+
+            ## Dimensions
+
+            1. **Internal contradictions** — rules that conflict with each other
+            2. **Coverage gaps** — situations likely in play that rules don't address
+            3. **D&D 5e rules accuracy** — verify all mechanical claims against 2014 PHB RAW (stat block math, modifiers, proficiency, damage dice, spell slots, rest rules)
+            4. **LLM attention risks** — rules likely to be forgotten under context pressure
+            5. **Cross-file dependency gaps** — ChatGPT RAG retrieves File A but needs File B (label as ChatGPT-only)
+            6. **Platform parity** — compare claude-instructions.md vs gpt-instructions.md line by line
+            7. **README accuracy** — does README match current file structure and gameplay?
+            8. **Token efficiency** — unnecessarily verbose sections that waste model attention
+            9. **Worked examples** — do all examples follow stated rules? Are complex behaviors exemplified?
+            10. **Tone and audience fit** — consistent for new-to-D&D players?
+
+            ## Output format
+
+            Create a GitHub Issue titled "Audit Findings — [today's date]" with:
+
+            For each dimension, list findings as numbered items. If none, say "No findings."
+
+            End with:
+
+            **Summary table:**
+            | # | Dimension | File | Severity | One-line description |
+
+            **Top 5 priorities** — highest (severity × likelihood in play).
+
+            **Feature opportunities** — up to 5 new capabilities that would improve play, each described in 2-3 sentences.
+
+            Add this at the bottom:
+            ---
+            **To approve fixes:** Comment on this issue with items you want implemented, e.g.:
+            `@claude Please implement fixes for findings #1, #3, #7 and feature opportunity #2`
+          claude_args: "--allowedTools Edit,Read,Write,Bash"

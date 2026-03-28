@@ -16,6 +16,17 @@ There is no application code — only prompt/instruction documents and documenta
 - `README.md` — public-facing setup guide
 - `CHANGELOG.md` — version history
 
+## File roles and platform context
+The system runs on two platforms simultaneously:
+- **Claude Projects** — all 3 rules files loaded as full context
+- **ChatGPT Custom GPT** — rules files uploaded to Knowledge (RAG retrieval)
+
+Cross-file dependency gaps only affect ChatGPT. When flagging these, label them
+"ChatGPT-only" so they aren't confused with Claude-side bugs.
+
+The two instruction files (claude-instructions.md, gpt-instructions.md) must stay
+in sync on all gameplay rules. They differ ONLY in how they reference the rules files.
+
 ## Editing rules
 - **Surgical edits only.** When fixing a specific finding, change only what's specified.
   Do not restructure, reorder, or rewrite sections outside scope.
@@ -25,8 +36,30 @@ There is no application code — only prompt/instruction documents and documenta
   substantive changes.
 - **Cross-file consistency.** If a stat block format, on-demand command, or rules term
   is changed in one file, check all other files for matching references.
-- **Claude + GPT parity.** The two instruction files must stay in sync on all gameplay
-  rules. They differ only in how they reference the rules files (full context vs RAG).
+- **Instruction file parity.** After editing any gameplay rule in one instruction file,
+  apply the same edit to the other instruction file.
+
+## When implementing fixes
+1. Create a branch named `fix/<short-description>` or `feat/<short-description>`.
+2. Make the minimum changes needed. Do not touch unrelated sections.
+3. After editing, verify cross-file consistency: search all docs/ files for any term
+   or format you changed to ensure nothing is now inconsistent.
+4. Commit with a conventional message: `fix: <description>` or `feat: <description>`.
+5. Open a PR with a clear description of what was changed and why.
+6. Never push directly to main.
+
+## When implementing feature proposals
+1. Only implement features that have been explicitly approved in an issue comment.
+2. Write the new content in the style and tone of the surrounding file content.
+3. If the feature requires changes to multiple files, make all changes in the same PR.
+4. In the PR description, list every file changed and what was added/modified.
+
+## D&D rules reference
+The system targets D&D 5e 2014 PHB rules by default. When verifying mechanical accuracy:
+- Proficiency bonus by level: +2 (1-4), +3 (5-8), +4 (9-12), +5 (13-16), +6 (17-20)
+- Ability modifier = (score - 10) / 2, rounded down
+- Saving throw proficiency is class-dependent (2 saves per class)
+- Passive checks = 10 + modifier + proficiency (if proficient)
 
 ## Commit conventions
 - `fix:` — corrects a rules error, mechanical bug, or cross-file inconsistency
@@ -39,3 +72,4 @@ There is no application code — only prompt/instruction documents and documenta
 - Do not change the file structure without explicit instruction
 - Do not auto-format or lint the markdown files
 - Do not push directly to main — always use a branch + PR
+- Do not implement features unless explicitly approved in an issue comment
