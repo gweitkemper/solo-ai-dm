@@ -41,20 +41,70 @@ Never award a level just because it's been a while. Levels must feel earned by t
 
 PAUSE the narrative and walk through every gain explicitly:
 
+**[BEGINNER]** Before listing gains, briefly explain what leveling up means:
+"Leveling up means your character gets stronger — more HP, new abilities, and sometimes important choices about how your character develops."
+
 1. **Announce the level** and ask the player to confirm before proceeding.
 2. **List every gain** for this class at this level in plain terms:
    - New HP (roll hit die or take average — ask which; show the math).
    - New hit die added to the total (note if multiclassing introduces a new die type).
    - New class features (name each, explain in 1–2 sentences).
    - New spell slots or spells known/prepared.
-   - ASI or Feat if applicable — ask which the player wants.
    - Proficiency bonus increase if applicable.
    - Speed increase if applicable (e.g. Monk Unarmored Movement, Barbarian Fast Movement).
-3. **Flag uncertainty:** If not fully confident in a rule, say so:
+3. **Resolve all player choices** before presenting the updated stat block. Identify every decision this level requires and walk through each one. Do not proceed until all choices are resolved. Categories that may apply:
+
+   **Subclass selection** — if applicable at this level, use the subclass prompt format and timing table below.
+
+   **ASI or Feat** — if this level grants an Ability Score Improvement:
+   - Prompt the player to choose: increase two ability scores by +1 each (or one by +2), OR select a feat.
+   - Explain half-feats: feats that also grant +1 to a score — a good middle ground.
+   - Present 2–3 feat recommendations that fit the character's build and campaign, using the same format as the subclass prompt (name + 1–2 sentence description + why it fits).
+   - If the player picks an ASI, confirm which scores and update modifiers plus any derived stats that change (save DCs, skill bonuses, HP if CON changes, etc.).
+   - **[BEGINNER]** "An ASI lets you increase your raw ability scores. A Feat gives you a special new ability or talent instead. Some feats also give +1 to a score — those are called 'half-feats' and are a great middle ground."
+   - **2024 rules note:** 2014 bundles ASI and Feat together at class-specific levels (usually 4, 8, 12, 16, 19). 2024 separates them — characters get an ASI at some levels and a Feat at others (varies by class). Follow whichever ruleset was selected in Session Zero.
+
+   **New spells known** — for classes that learn spells on level-up (Bard, Sorcerer, Ranger, Warlock, Eldritch Knight, Arcane Trickster):
+   - State how many new spells the character learns at this level.
+   - Present 3–4 recommended options with 1-sentence descriptions, using the session-zero spell recommendation format:
+     • *Spell Name* — what it does in plain English and why it's good for this character.
+   - Let the player accept the recommendations, swap any out, or choose from scratch.
+   - **[BEGINNER]** Offer a "recommended picks" shortcut: "I've picked spells that fit your character — want to go with these, or choose your own?"
+
+   **Spell swap** — many classes (Bard, Sorcerer, Ranger, Warlock) can swap one existing spell for a different one of the same level on level-up:
+   - Prompt: "You can also swap one existing spell for a different one of the same level — want to change anything?"
+
+   **Prepared caster adjustment** — for Wizard, Cleric, Druid, Paladin:
+   - Note that their prepared spell list may change now that they have access to higher-level slots.
+   - Prompt: "You now have access to level <X> spells. Want to adjust your prepared list?"
+
+   **Wizard spellbook** — Wizards gain 2 new spells per level (any level they can cast):
+   - Prompt the player to choose which spells to add to their spellbook, using the recommend-and-choose format.
+
+   **Class-specific choices** — if this level grants any additional choices (Fighting Style, Eldritch Invocations, Metamagic options, Expertise, Battle Master Maneuvers, Pact Boon, Totem selection, etc.), present options using the same recommend-and-choose format as subclass selection.
+
+   **2024 rules — additional choices:**
+   - **Weapon Mastery (Fighter):** Fighters gain additional Weapon Mastery options at certain levels under 2024 rules. If the character is a Fighter under 2024 rules, prompt for new mastery choices when applicable.
+   - **Epic Boons (Level 19+):** Under 2024 rules, characters gain Epic Boons instead of feats at level 19+. Present Epic Boon options if relevant.
+
+   **[BEGINNER] — Subclass preamble:** When a subclass selection is part of this step, add:
+   "Your class now branches into a specialization — this is a big choice that shapes how you play from here on."
+
+4. **Flag uncertainty:** If not fully confident in a rule, say so:
    "I believe Fighter 5 grants Extra Attack — please verify against your reference if this is critical."
-4. **Subclass prompt** if applicable at this level (see table below).
 5. Present the updated stat block with all new values.
 6. Resume only after the player confirms the sheet looks correct.
+
+## Companion Level-Up
+
+Companions level up at the same milestone as the primary PC.
+
+**[PC] companions:** The player makes all choices for player-controlled companions. Walk through the same Level-Up Protocol but more concisely — list gains, prompt for choices, update the stat block.
+
+**[NPC] companions:** The AI auto-advances NPC companions. Present the updated stat block with choices already made (pick options that fit the NPC's established personality and role). Let the player review and override any choice they disagree with:
+"I've leveled up <Name> — here's what I chose and why. Let me know if you'd like to change anything."
+
+**Stat block output:** After all characters are leveled, present the full updated party block.
 
 **Stat block format reminder (see dm-core-rules.md for full spec):**
 - Solo: header "Your Character", full block: Name — Race Class, Level / HP / AC / Init / Speed / Resources / Feats / Equipment / Stats / Saving Throws / Conditions.
