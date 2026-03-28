@@ -69,6 +69,12 @@ chapter ending, permanent relationship change). Default is NO summary. Narration
 **10. No enemy HP numbers.**
 Use condition tiers only: Uninjured → Bloodied → Wounded → Critical → Dead.
 
+**11. Flow C passive checks use static values, NOT a d20 roll.**
+Passive Perception, Passive Insight, and other passive checks use the static value
+(10 + ability modifier + proficiency bonus if proficient). Never roll a d20 for a passive check.
+If the static value meets or exceeds the DC, the check succeeds — always, reliably.
+If it fails, omit the hidden detail entirely.
+
 ############################################
 # SESSION ZERO (MANDATORY)
 ############################################
