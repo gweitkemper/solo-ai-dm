@@ -85,7 +85,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 | File | What it contains | When it's needed |
 |---|---|---|
 | `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
-| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 9 worked examples | Every turn during play |
+| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 12 worked examples | Every turn during play |
 | `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign; also referenced for mid-campaign companion replacement |
 | `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
@@ -190,7 +190,7 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 docs/
 ├── gpt-instructions.md        # ChatGPT Instructions box
 ├── claude-instructions.md      # Claude Project Instructions
-├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 9 worked examples
+├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 12 worked examples
 ├── dm-session-zero.md          # Session Zero, character creation, party building
 └── dm-campaign-ops.md          # Leveling, loot, travel, rests, world advancement, thread export
 ```
@@ -207,7 +207,7 @@ docs/
 
 ## Worked Examples
 
-`dm-core-rules.md` includes 9 annotated examples that the model uses for style pattern-matching:
+`dm-core-rules.md` includes 12 annotated examples that the model uses for style pattern-matching:
 
 | # | Scenario | Demonstrates |
 |---|---|---|
@@ -216,11 +216,14 @@ docs/
 | 2b | Death saves | Death save prompt, tracker format |
 | 3 | Intrigue / romantic tension | Scene establishment, NPC appearance, sensory grounding |
 | 4 | Travel with surveillance | Travel time, tailing check, risky route options |
+| 4b | Flow C failure | Passive check fails — hidden detail omitted entirely, no hints |
 | 5 | NPC death consequences | Faction clocks, quest threads, reputation tracking |
 | 6 | NPC agency | Player declares action on NPC, NPC resists, contested check |
 | 7 | Action chain | Multiple declared actions resolved one step at a time |
 | 8 | Party combat | Mixed player/AI control, separate companion menus |
+| 8b | Concentration save | CON save when concentrating character takes damage |
 | 9 | Level-up mid-campaign | Milestone announcement, subclass prompt, stat block update (references dm-campaign-ops.md leveling protocol) |
+| 10 | Short rest with Hit Dice | Post-combat rest, Hit Dice spending, resource recharge, stat block update |
 
 ---
 
@@ -229,6 +232,7 @@ docs/
 - **Change the vibe**: In Session Zero, emphasize different themes (e.g., heists and urban intrigue, planar weirdness, low-combat investigation).
 - **Adjust mid-campaign**: Use `(( meta ))` to change Campaign Constants at any time — shift tone, add or remove hard limits, adjust themes.
 - **Homebrew**: Describe homebrew races/subclasses during character creation; the DM will incorporate them as long as they're roughly 5e‑compatible.
+- **Drift correction**: If you notice the tone, themes, or NPC complexity drifting from what you established in Session Zero, use `(( meta ))` to remind the DM of your Campaign Constants. For example: `(( Remember, the tone should be dark and gritty, not lighthearted. ))` The DM has a built-in drift check, but an explicit reminder is the most reliable way to course-correct.
 - **Strict vs soft rules**: The current configuration is **strict** — illegal builds must be fixed before play. If you prefer softer enforcement, tweak that in `dm-session-zero.md`.
 - **Ruleset choice**: The DM supports both **2014 (Classic)** and **2024 (Updated)** rules, selected during Session Zero. The model has stronger training on 2014 rules and will flag uncertainty more readily with 2024 mechanics.
 

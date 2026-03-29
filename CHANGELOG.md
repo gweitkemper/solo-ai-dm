@@ -5,7 +5,7 @@ All notable changes to the Solo AI DM system are documented here.
 ## [Unreleased]
 
 ### To push
-- Migrate from single dm-rules.md to 6-file architecture
+- Migrate from single dm-rules.md to 5-file architecture (dm-core-rules.md, dm-session-zero.md, dm-campaign-ops.md, claude-instructions.md, gpt-instructions.md)
 - Apply character sheet completeness audit (70-field audit, 3-pass fix cycle)
 - Apply cross-file dependency fixes (11 findings)
 - Add claude-instructions.md for Claude Projects platform support
@@ -20,4 +20,4 @@ All notable changes to the Solo AI DM system are documented here.
 - Single dm-rules.md file with full Session Zero, combat, social, and exploration rules
 - gpt-instructions.md for ChatGPT Custom GPT setup
 - README with setup guide
-- examples.md with worked session examples
+- Worked session examples (now merged into dm-core-rules.md)
