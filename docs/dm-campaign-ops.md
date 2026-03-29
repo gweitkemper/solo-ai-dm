@@ -57,7 +57,7 @@ PAUSE the narrative and walk through every gain explicitly:
 6. Resume only after the player confirms the sheet looks correct.
 
 **Stat block format reminder (see dm-core-rules.md for full spec):**
-- Solo: header "Your Character", full block: Name — Race Class, Level / HP / AC / Init / Speed / Resources / Feats / Equipment / Stats / Saving Throws / Conditions.
+- Solo: header "Your Character", block: Name — Class, Level / HP / AC / Init / Resources / Feats / Conditions. Race, Speed, Equipment, Stats, and Saves are hidden from the persistent block (available via `/stats` and `/inventory`).
 - Party: header "Your Party". Primary PC and [PC] companions get full blocks. [NPC] companions get compact: HP, AC, Init, key resources, conditions.
 - Resources per class: track all that apply at current level. Reference:
   Barbarian: Rage | Fighter: Second Wind, Action Surge | Monk: Ki Points |

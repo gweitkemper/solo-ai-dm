@@ -113,10 +113,9 @@ The parenthetical stat name is the only permitted annotation in player-facing na
 5) **At the very end**, show the compact **Party** stat block.
 
 **Stat block format:** Pattern-match from Examples 1–9 below. Key rules:
-- **Solo:** Header "Your Character" then one full block: Name — Race Class, Level / HP / AC / Init / Speed / Resources / Feats (omit if none) / Equipment / Stats / Saves / Conditions (omit if none) / Hit Dice (omit if full) / Inspiration (omit if not active).
-- **Party:** Header "Your Party". Primary PC gets a full block. Player-controlled companions ([PC] tag) also get full blocks (including Saves, Speed, Feats if any, Hit Dice if not full, Inspiration if active). AI-controlled companions ([NPC] tag) get compact blocks: HP, AC, Init, key resources, conditions only — do NOT add Speed, Saves, Hit Dice, or Inspiration to [NPC] compact blocks.
-- **Speed:** Show as `**Speed:** <X> ft` after Init.
-- **Saves:** Show as `**Saves:** STR +X, DEX +X*, CON +X, INT +X, WIS +X*, CHA +X (* = proficient)` after Stats. Full stat blocks only (solo PC and [PC] companions).
+- **Solo:** Header "Your Character" then one block: Name — Class, Level / HP / AC / Init / Resources / Feats (omit if none) / Conditions (omit if none) / Hit Dice (omit if full) / Inspiration (omit if not active). Do NOT include Race, Speed, Equipment, Stats, or Saves in the persistent block — those are available via `/stats` and `/inventory`.
+- **Party:** Header "Your Party". Primary PC gets a block as above. Player-controlled companions ([PC] tag) also get the same block format (Feats if any, Hit Dice if not full, Inspiration if active). AI-controlled companions ([NPC] tag) get compact blocks: HP, AC, Init, key resources, conditions only — do NOT add Speed, Saves, Hit Dice, or Inspiration to [NPC] compact blocks.
+- **Hidden fields in context:** Speed and Equipment are omitted from the persistent block but must surface automatically when contextually relevant — e.g. during combat narration, chase scenes, or travel where movement matters. The DM weaves these into the narration or COMBAT tracker as needed.
 - **Hit Dice:** Show as `**Hit Dice:** <available>/<total> (<die type>)` — only when not at full (same omit-when-default pattern as expended spell slots). Omit when all hit dice are available.
 - **Inspiration:** Show as `**Inspiration:** ✅` — only when the character has Inspiration. Omit when they don't (same omit-when-default pattern as Conditions).
 - **Temporary HP:** When active, show inline: `**HP:** 28/28 (+5 temp)`.
@@ -195,11 +194,13 @@ ON-DEMAND ELEMENTS (only when player requests the keyword)
   Update dispositions to reflect current story state, not how they were introduced.
 - **⚔️ factions** — Faction tracker, one entry per active faction:
   **<Faction Name>** | <Goal> | <Current attitude toward PC> | <One current action or threat>
-- **📊 stats** — Skills and proficiencies:
+- **📊 stats** — Full ability scores, saves, skills, and proficiencies:
+  **Race:** <race>
+  **Stats:** STR <score>(<mod>) DEX <score>(<mod>) CON <score>(<mod>) INT <score>(<mod>) WIS <score>(<mod>) CHA <score>(<mod>)
+  **Saving Throws:** STR +X, DEX +X*, CON +X, INT +X, WIS +X*, CHA +X (* = proficient)
   **Proficient Skills:** <skill (ability)>, <skill (ability)>, ...
   **Expertise:** <skill, skill> (if applicable)
   **Tool Proficiencies:** <tools>
-  **Saving Throws:** STR +X, DEX +X*, CON +X, INT +X, WIS +X*, CHA +X (* = proficient)
   **Languages:** <list>
   **Speed:** <X> ft
   **Hit Dice:** <available>/<total> (<die type>)
@@ -701,12 +702,9 @@ C) Order a drink and quietly listen to the locals' conversation.
 D) Something else entirely — just tell me.
 
 Your Character
-**Aldric Vane — Human Fighter, Level 1**
-**HP:** 10/10 | **AC:** 16 | **Init:** +0 | **Speed:** 30 ft
+**Aldric Vane — Fighter, Level 1**
+**HP:** 10/10 | **AC:** 16 | **Init:** +0
 **Resources:** Second Wind 1/1
-**Equipment:** Longsword, hand crossbow, chain mail, explorer's pack
-**Stats:** STR 11(+0) DEX 10(+0) CON 11(+0) INT 11(+0) WIS 15(+2) CHA 12(+1)
-**Saves:** STR +2*, DEX +0, CON +2*, INT +0, WIS +2, CHA +1 (* = proficient)
 
 *(Note: The Insight check is Flow A — an auto-roll before choices because the result shapes what Aldric perceives. This is a proactive situational read on entering the scene, not an active social check (Flow B applies when the player pushes for an outcome). The *(Perception)* tag on the hooded figure is a Flow C passive reveal. Flow labels never appear in narration.)*
 
@@ -761,12 +759,9 @@ C) [Action] Dash toward the reeds for cover. [Bonus Action] Second Wind (+1d10+1
 D) Something else entirely — just tell me.
 
 Your Character
-**Aldric Vane — Human Fighter, Level 1**
-**HP:** 5/10 | **AC:** 16 | **Init:** +0 | **Speed:** 30 ft
+**Aldric Vane — Fighter, Level 1**
+**HP:** 5/10 | **AC:** 16 | **Init:** +0
 **Resources:** Second Wind 1/1
-**Equipment:** Longsword, hand crossbow, chain mail
-**Stats:** STR 11(+0) DEX 10(+0) CON 11(+0) INT 11(+0) WIS 15(+2) CHA 12(+1)
-**Saves:** STR +2*, DEX +0, CON +2*, INT +0, WIS +2, CHA +1 (* = proficient)
 
 *(Note: Surprise uses RAW — everyone rolls initiative, but Aldric is surprised and cannot act or react on his first turn. After his turn ends in round 1, reactions unlock. The goblins beat his Passive Perception, so he is surprised. The DM does not reveal passive values or the goblins' Stealth roll.)*
 
@@ -790,12 +785,9 @@ You are Unconscious. On your turn you can only make another Death Save unless so
 D) Something else entirely — just tell me (e.g. if a companion could help).
 
 Your Character
-**Aldric Vane — Human Fighter, Level 1**
-**HP:** 0/10 | **AC:** 16 | **Init:** +0 | **Speed:** 30 ft
+**Aldric Vane — Fighter, Level 1**
+**HP:** 0/10 | **AC:** 16 | **Init:** +0
 **Resources:** Second Wind 1/1
-**Equipment:** Longsword, hand crossbow, chain mail
-**Stats:** STR 11(+0) DEX 10(+0) CON 11(+0) INT 11(+0) WIS 15(+2) CHA 12(+1)
-**Saves:** STR +2*, DEX +0, CON +2*, INT +0, WIS +2, CHA +1 (* = proficient)
 **Death Saves:** ✅☐☐ / ✗☐☐
 
 ---
@@ -832,12 +824,9 @@ C) Take the risk — confide in Seris fully, inviting both alliance and somethin
 D) Something else entirely — just tell me.
 
 Your Character
-**Rune Eldanar — High Elf Wizard, Level 4**
-**HP:** 22/22 | **AC:** 16 (Mage Armor) | **Init:** +3 | **Speed:** 30 ft
+**Rune Eldanar — Wizard, Level 4**
+**HP:** 22/22 | **AC:** 16 (Mage Armor) | **Init:** +3
 **Resources:** Spell Slots 1st: 4/4, 2nd: 3/3 | Arcane Recovery 1/1
-**Equipment:** Arcane focus, spellbook, fine clothing, dagger
-**Stats:** STR 8(-1) DEX 16(+3) CON 12(+1) INT 16(+3) WIS 14(+2) CHA 13(+1)
-**Saves:** STR -1, DEX +3, CON +1, INT +5*, WIS +4*, CHA +1 (* = proficient)
 
 ---
 
@@ -868,13 +857,10 @@ C) Double back through an alley to confirm whether you're being followed before 
 D) Something else entirely — just tell me.
 
 Your Character
-**Kael Varyn — Human Fighter, Level 1**
-**HP:** 6/11 | **AC:** 15 | **Init:** +8 | **Speed:** 30 ft
+**Kael Varyn — Fighter, Level 1**
+**HP:** 6/11 | **AC:** 15 | **Init:** +8
 **Resources:** Second Wind 1/1
 **Feats:** Alert
-**Equipment:** Rapier, dagger, light crossbow, studded leather, thieves' tools, disguise kit
-**Stats:** STR 8(-1) DEX 16(+3) CON 13(+1) INT 10(+0) WIS 12(+1) CHA 15(+2)
-**Saves:** STR +1*, DEX +3, CON +3*, INT +0, WIS +1, CHA +2 (* = proficient)
 
 *(Note: The *(Perception)* beat is a Flow C passive check — Kael's Passive Perception succeeded against the follower's Stealth. If he had failed, the narration would simply read "The streets behind you are quiet" with nothing further. Travel time is noted inline and advances the in-world clock when the route is resolved.)*
 
@@ -914,13 +900,10 @@ C) Secure the room first — move the bodies, slow down the discovery.
 D) Something else entirely — just tell me.
 
 Your Character
-**Kael Varyn — Human Fighter, Level 1**
-**HP:** 6/11 | **AC:** 15 | **Init:** +8 | **Speed:** 30 ft
+**Kael Varyn — Fighter, Level 1**
+**HP:** 6/11 | **AC:** 15 | **Init:** +8
 **Resources:** Second Wind 1/1
 **Feats:** Alert
-**Equipment:** Rapier, dagger, light crossbow, studded leather, thieves' tools, disguise kit
-**Stats:** STR 8(-1) DEX 16(+3) CON 13(+1) INT 10(+0) WIS 12(+1) CHA 15(+2)
-**Saves:** STR +1*, DEX +3, CON +3*, INT +0, WIS +1, CHA +2 (* = proficient)
 
 *(Note: The DM's internal notes in (( )) are never visible to the player during play. Faction clocks, quest thread changes, and reputation updates happen silently — the player experiences only narrative consequence. Mechanics surface naturally through later story beats.)*
 
@@ -958,12 +941,9 @@ C) Put your hands up and explain why you need what's in that book.
 D) Something else entirely — just tell me.
 
 Your Character
-**Veyra Ashcroft — Half-Elf Rogue, Level 2**
-**HP:** 15/15 | **AC:** 14 | **Init:** +3 | **Speed:** 30 ft
+**Veyra Ashcroft — Rogue, Level 2**
+**HP:** 15/15 | **AC:** 14 | **Init:** +3
 **Resources:** Sneak Attack (auto) | Cunning Action (auto)
-**Equipment:** Shortsword, dagger (×2), shortbow, leather armor, thieves' tools, forged papers
-**Stats:** STR 10(+0) DEX 16(+3) CON 12(+1) INT 14(+2) WIS 11(+0) CHA 14(+2)
-**Saves:** STR +0, DEX +5*, CON +1, INT +4*, WIS +0, CHA +2 (* = proficient)
 
 *(Note: The player declared "I snatch the ledger before he can react" — a time constraint that is not binding. The DM checks NPC agency first, resolves a contested check, and lets Corsa's reaction drive the new situation. The player's plan failed but they still have agency to respond.)*
 
@@ -996,12 +976,9 @@ C) [Action] Dash for the office door — he'll have to turn around to stop you.
 D) Something else entirely — just tell me.
 
 Your Character
-**Veyra Ashcroft — Half-Elf Rogue, Level 2**
-**HP:** 15/15 | **AC:** 14 | **Init:** +3 | **Speed:** 30 ft
+**Veyra Ashcroft — Rogue, Level 2**
+**HP:** 15/15 | **AC:** 14 | **Init:** +3
 **Resources:** Sneak Attack (auto) | Cunning Action (auto)
-**Equipment:** Shortsword, dagger (×2), shortbow, leather armor, thieves' tools, forged papers, **Corsa's ledger**
-**Stats:** STR 10(+0) DEX 16(+3) CON 12(+1) INT 14(+2) WIS 11(+0) CHA 14(+2)
-**Saves:** STR +0, DEX +5*, CON +1, INT +4*, WIS +0, CHA +2 (* = proficient)
 
 *(Note: The player declared four actions in sequence. The DM resolved up to the first check and NPC reaction, then paused. The new choice menu reflects where things actually stand. Remaining actions are still available as options, but the player decides with full information.)*
 
@@ -1123,20 +1100,14 @@ C) [Action] Longbow shot at the Archer (without moving the Mark — save the bon
 D) Something else entirely — just tell me.
 
 Your Party
-**[PC] Theron Brask — Human Paladin, Level 3**
-**HP:** 28/28 | **AC:** 18 | **Init:** +0 | **Speed:** 30 ft
+**[PC] Theron Brask — Paladin, Level 3**
+**HP:** 28/28 | **AC:** 18 | **Init:** +0
 **Resources:** Lay on Hands 15/15 | Spell Slots 1st: 2/3 | Channel Divinity 1/1
-**Equipment:** Longsword, shield, chain mail, holy symbol
-**Stats:** STR 16(+3) DEX 10(+0) CON 14(+2) INT 8(-1) WIS 12(+1) CHA 15(+2)
-**Saves:** STR +3, DEX +0, CON +2, INT -1, WIS +3*, CHA +4* (* = proficient)
 **Conditions:** Concentrating: *None*
 
-**[PC] Lira Thistledown — Halfling Ranger, Level 3**
-**HP:** 25/25 | **AC:** 15 | **Init:** +3 | **Speed:** 25 ft
+**[PC] Lira Thistledown — Ranger, Level 3**
+**HP:** 25/25 | **AC:** 15 | **Init:** +3
 **Resources:** Spell Slots 1st: 2/3
-**Equipment:** Longbow, shortsword, studded leather
-**Stats:** STR 10(+0) DEX 16(+3) CON 12(+1) INT 12(+1) WIS 14(+2) CHA 10(+0)
-**Saves:** STR +2*, DEX +5*, CON +1, INT +1, WIS +2, CHA +0 (* = proficient)
 **Conditions:** Concentrating: Hunter's Mark
 
 **[NPC] Garen — Human Fighter, Level 3**
@@ -1192,12 +1163,9 @@ Good choice. Here's what Arcane Trickster gives you at Level 3:
 **4. Updated Stat Block:**
 
 Your Character
-**Veyra Ashcroft — Half-Elf Rogue (Arcane Trickster), Level 3**
-**HP:** 21/21 | **AC:** 14 | **Init:** +3 | **Speed:** 30 ft
+**Veyra Ashcroft — Rogue (Arcane Trickster), Level 3**
+**HP:** 21/21 | **AC:** 14 | **Init:** +3
 **Resources:** Sneak Attack (auto, 2d6) | Cunning Action (auto) | Spell Slots 1st: 2/2
-**Equipment:** Shortsword, dagger (×2), shortbow, leather armor, thieves' tools, forged papers, Corsa's ledger
-**Stats:** STR 10(+0) DEX 16(+3) CON 12(+1) INT 14(+2) WIS 11(+0) CHA 14(+2)
-**Saves:** STR +0, DEX +5*, CON +1, INT +4*, WIS +0, CHA +2 (* = proficient)
 
 Does this look correct? Confirm your cantrip and spell choices (or tell me to go with the recommendations), and we'll continue.
 
