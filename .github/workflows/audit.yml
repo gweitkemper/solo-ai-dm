@@ -10,7 +10,7 @@ on:
     types: [labeled]
   # Scheduled: runs every other Monday at 9am CT
   schedule:
-    - cron: '0 14 * * 5'  # 14:00 UTC = 9:00 AM CT, every Monday
+    - cron: '0 14 * * 5'  # 14:00 UTC = 9:00 AM CT, every Friday
   # Manual trigger from Actions tab
   workflow_dispatch:
 
