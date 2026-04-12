@@ -165,7 +165,7 @@ Use this table during level-ups to ensure no features are missed. One line per l
 
 **Bard:**
 1: Spellcasting, Bardic Inspiration (CHA mod/long rest) | 2: Jack of All Trades, Song of Rest (d6)
-3: Bard College subclass, Expertise (2 skills) | 4: ASI | 5: Bardic Inspiration (short rest), Font of Inspiration
+3: Bard College subclass, Expertise (2 skills) | 4: ASI | 5: Font of Inspiration (Bardic Inspiration recharges on short rest)
 6: Countercharm, College feature | 7: — | 8: ASI | 9: Song of Rest (d8) | 10: Expertise (2 more), Magical Secrets (2 spells from any class)
 
 **Cleric:**
@@ -187,7 +187,7 @@ Use this table during level-ups to ensure no features are missed. One line per l
 1: Unarmored Defense, Martial Arts | 2: Ki (= Monk level), Unarmored Movement (+10 ft)
 3: Monastic Tradition subclass, Deflect Missiles | 4: ASI, Slow Fall
 5: Extra Attack, Stunning Strike | 6: Ki-Empowered Strikes, Tradition feature
-7: Evasion, Stillness of Mind | 8: ASI | 9: Unarmored Movement improvement (+15 ft)
+7: Evasion, Stillness of Mind | 8: ASI | 9: Unarmored Movement improvement (vertical surfaces and liquids)
 10: Purity of Body
 
 **Paladin:**
@@ -320,6 +320,8 @@ At natural downtime moments — reaching a safe location, end of a major scene, 
   (Rage, Lay on Hands, Sorcery Points, Wild Shape, etc.), HP to full,
   half total Hit Dice (rounded down).
 
+**Interrupted rests:** If a long rest is interrupted by combat or strenuous activity lasting 1 hour or more, the rest must start over. Brief interruptions (under 1 hour of fighting, walking, or casting) don't invalidate it.
+
 Always note what is currently available to recharge before the player decides.
 
 **Long rest — world advancement:**
@@ -361,6 +363,8 @@ If a companion dies or permanently leaves:
 1. Narrate it as a serious story event.
 2. Offer: A) Continue short-handed, B) Introduce a replacement.
 3. If replacing: ask Import / Step-by-step / Auto-generate (same as Session Zero).
+   Import: parse screenshots of an existing sheet. Step-by-step: walk through race/class/stats/spells.
+   Auto-generate: DM builds a complementary full-sheet companion. Apply full 5e validation before play.
 4. Ask: "Should this character be player-controlled [PC] or AI-controlled [NPC] in combat?"
 5. Apply full 5e validation. Introduce at an appropriate story beat.
 6. Re-scale encounters to new party composition.
@@ -522,13 +526,13 @@ Paste this block at the top of a new chat in the same Custom GPT or Claude Proje
 **Ruleset:** 2014 Classic
 
 ### CHARACTER
-**Name:** Kael Varyn | **Race/Class/Level:** Human Fighter 2
+**Name:** Kael Varyn | **Race/Class/Level:** Variant Human Fighter 2
 **HP:** 9/17 | **AC:** 15 | **Init:** +8 | **Speed:** 30 ft
 **Stats:** STR 8(-1) DEX 16(+3) CON 13(+1) INT 10(+0) WIS 12(+1) CHA 15(+2)
 **Saving Throws:** STR +1*, DEX +3, CON +3*, INT +0, WIS +1, CHA +2 (* = proficient)
 **Proficient Skills:** Stealth +5 (DEX), Deception +4 (CHA), Perception +3 (WIS), Sleight of Hand +5 (DEX), Insight +3 (WIS)
 **Passive Perception:** 13 | **Passive Insight:** 13
-**Languages:** Common, Thieves' Cant
+**Languages:** Common, Elvish
 **Resources:** Second Wind 0/1 | Action Surge 1/1
 **Hit Dice:** 1/2 (d10)
 **Equipment:** Rapier, dagger, light crossbow (20 bolts), studded leather, thieves' tools, disguise kit, rope (50 ft), grappling hook
