@@ -85,7 +85,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 | File | What it contains | When it's needed |
 |---|---|---|
 | `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
-| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 12 worked examples | Every turn during play |
+| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 13 worked examples | Every turn during play |
 | `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign; also referenced for mid-campaign companion replacement |
 | `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
@@ -190,7 +190,7 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 docs/
 ├── gpt-instructions.md        # ChatGPT Instructions box
 ├── claude-instructions.md      # Claude Project Instructions
-├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 12 worked examples
+├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 13 worked examples
 ├── dm-session-zero.md          # Session Zero, character creation, party building
 └── dm-campaign-ops.md          # Leveling, loot, travel, rests, world advancement, thread export
 ```
