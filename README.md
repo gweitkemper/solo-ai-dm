@@ -85,7 +85,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 | File | What it contains | When it's needed |
 |---|---|---|
 | `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
-| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 13 worked examples | Every turn during play |
+| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 16 worked examples | Every turn during play |
 | `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign; also referenced for mid-campaign companion replacement |
 | `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
@@ -93,7 +93,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 
 - On **ChatGPT**, Knowledge files use retrieval (RAG) — the system searches for relevant chunks per turn. Splitting means Session Zero content doesn't pollute combat retrieval, and related rules stay together for coherent chunk pulls.
 - On **Claude**, all Project Knowledge is loaded into full context every turn. The split still helps with organization and maintainability — but every rule is visible to the model at all times regardless.
-- On **both platforms**, the instructions file carries the 10 rules most likely to conflict with default model behavior (NPC agency, action chains, hidden rolls, etc.) as reinforcement that's always present.
+- On **both platforms**, the instructions file carries the 11 rules most likely to conflict with default model behavior (NPC agency, action chains, hidden rolls, etc.) as reinforcement that's always present.
 
 ---
 
@@ -159,6 +159,7 @@ When you open a new conversation:
   | `factions` | Faction tracker with goals and attitudes toward you |
   | `stats` | Proficient skills, tool proficiencies, passive values |
   | `spells` | Prepared/known spell list with slots and concentration status |
+  | `recap` | Quick session refresher: key events, decisions, unresolved threads |
 
 ---
 
@@ -190,7 +191,7 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 docs/
 ├── gpt-instructions.md        # ChatGPT Instructions box
 ├── claude-instructions.md      # Claude Project Instructions
-├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 13 worked examples
+├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 16 worked examples
 ├── dm-session-zero.md          # Session Zero, character creation, party building
 └── dm-campaign-ops.md          # Leveling, loot, travel, rests, world advancement, thread export
 ```
@@ -207,7 +208,7 @@ docs/
 
 ## Worked Examples
 
-`dm-core-rules.md` includes 12 annotated examples that the model uses for style pattern-matching:
+`dm-core-rules.md` includes 16 annotated examples that the model uses for style pattern-matching:
 
 | # | Scenario | Demonstrates |
 |---|---|---|
@@ -224,6 +225,9 @@ docs/
 | 8b | Concentration save | CON save when concentrating character takes damage |
 | 9 | Level-up mid-campaign | Milestone announcement, subclass prompt, stat block update (references dm-campaign-ops.md leveling protocol) |
 | 10 | Short rest with Hit Dice | Post-combat rest, Hit Dice spending, resource recharge, stat block update |
+| 11 | Flow B failure | Prompted roll fails, consequence narration, updated choices reflect failure |
+| 12 | NPC social secret (Category 2) | NPC Insight vs PC passive Deception, behavioral shift, no visible mechanic |
+| 13 | Opportunity attack and Disengage | PC movement warning, Disengage option, enemy OA prompt |
 
 ---
 

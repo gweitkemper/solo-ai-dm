@@ -321,8 +321,23 @@ If the player chooses to create new:
      > • *Faerie Fire* — grants advantage on attacks against affected enemies. Great party support.
      > • *Dissonant Whispers* — psychic damage and forces the enemy to flee. Triggers opportunity attacks.
      > • *Sleep* — knocks out weak enemies. Powerful at level 1."
-     Adapt the list to whichever class the player chose. For Warlock, Ranger, and Paladin, build a
-     similar 3–4 spell list from their class spell list using the same plain-language format.
+     > **Warlock:**
+     > "• *Eldritch Blast* (cantrip) — your bread and butter. Best damage cantrip in the game, scales with level.
+     > • *Hex* — bonus action, adds 1d6 damage to every hit against one target. Concentration.
+     > • *Armor of Agathys* — temporary HP that damages enemies who hit you. No concentration.
+     > • *Hellish Rebuke* — reaction when you take damage, deals fire damage back. Great payback."
+     >
+     > **Ranger:**
+     > "• *Hunter's Mark* — bonus action, adds 1d6 damage to every hit against one target. Move it when the target dies. Concentration.
+     > • *Cure Wounds* — touch heal for 1d8 + WIS. Your emergency healing.
+     > • *Goodberry* — creates 10 berries, each heals 1 HP. Great out-of-combat healing and no waste.
+     > • *Ensnaring Strike* — bonus action, your next hit restrains the target (STR save). Great for locking enemies down."
+     >
+     > **Paladin:**
+     > "• *Bless* — adds 1d4 to attacks and saves for up to three creatures. Best low-level buff in the game. Concentration.
+     > • *Shield of Faith* — +2 AC for 10 minutes. Cast before combat starts. Concentration (can't stack with Bless).
+     > • *Cure Wounds* — touch heal for 1d8 + CHA. Your emergency heal.
+     > • *Command* — one-word command the enemy must obey (Flee, Grovel, Drop). No concentration. Very versatile."
    - Let them accept the list, swap individual spells, or build from scratch.
    - Suggest options when the player is unsure, especially for spell lists and feats, explaining why they fit the character concept.
 
