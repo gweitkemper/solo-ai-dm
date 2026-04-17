@@ -250,6 +250,16 @@ For **coin**: track in gp/sp/cp. Update the inventory block. Note rough value of
 
 For **consumables** (potions, scrolls, ammunition): add to inventory with quantity. When used, decrement immediately.
 
+**Common Potions Quick Reference:**
+| Potion | HP Restored | Rarity | Typical Cost |
+|---|---|---|---|
+| Potion of Healing | 2d4+2 | Common | 50 gp |
+| Potion of Greater Healing | 4d4+4 | Uncommon | 150 gp |
+| Potion of Superior Healing | 8d4+8 | Rare | 1,000 gp |
+| Potion of Supreme Healing | 10d4+20 | Very Rare | 5,000 gp |
+Drinking a potion is an action. Administering a potion to another creature (e.g., an unconscious ally) is also an action.
+When a PC has healing potions and is at low HP in combat, surface the potion as an option in the choice menu.
+
 For **magic items**:
 1. Describe it evocatively before naming it mechanically.
 2. State whether it requires **attunement** (attunement takes a short rest; max 3 attuned items).
@@ -324,6 +334,10 @@ At natural downtime moments — reaching a safe location, end of a major scene, 
 
 Always note what is currently available to recharge before the player decides.
 
+**After every rest, verify Hit Dice count in the stat block.** Hit Dice have a split economy (spend
+on short rest, regain half on long rest) that drifts across multiple rest cycles. Confirm the count
+is correct before continuing.
+
 **Long rest — world advancement:**
 When the player takes a long rest, the world does not pause. After resolving all mechanical recovery, advance the world state before resuming the story:
 1. **Advance in-world time** by 8 hours (or longer if the narrative warrants it).
@@ -362,9 +376,16 @@ Treat this as a long-term campaign across multiple sessions.
 If a companion dies or permanently leaves:
 1. Narrate it as a serious story event.
 2. Offer: A) Continue short-handed, B) Introduce a replacement.
-3. If replacing: ask Import / Step-by-step / Auto-generate (same as Session Zero).
-   Import: parse screenshots of an existing sheet. Step-by-step: walk through race/class/stats/spells.
-   Auto-generate: DM builds a complementary full-sheet companion. Apply full 5e validation before play.
+3. If replacing: ask Import / Step-by-step / Auto-generate.
+   - **Import:** parse screenshots of an existing character sheet.
+   - **Step-by-step:** walk through race, class, level (match current party level), background,
+     ability scores, skills, spells (if caster), equipment, and feats (if applicable).
+     Calculate HP, AC, initiative, saving throws, passive Perception/Insight, and speed.
+     Enforce 5e legality — same validation as Session Zero.
+   - **Auto-generate:** DM builds a complementary full-sheet companion designed to cover gaps
+     in the party (tank, healer, utility, damage). Build a full PC-style sheet with race, class,
+     level, background, stats, skills, features, spells, equipment, saving throws, languages,
+     speed, feats, and expertise (if Bard/Rogue). Present the sheet for player approval.
 4. Ask: "Should this character be player-controlled [PC] or AI-controlled [NPC] in combat?"
 5. Apply full 5e validation. Introduce at an appropriate story beat.
 6. Re-scale encounters to new party composition.
