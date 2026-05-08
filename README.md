@@ -60,7 +60,7 @@ Both platforms use the same three rules files (`dm-core-rules.md`, `dm-session-z
 
 ### 1. Create a Claude Project
 
-1. Go to **claude.ai → Projects → Create Project** (requires a Claude Pro subscription).
+1. Go to **claude.ai → Projects → Create Project** (requires a Claude Pro, Team, or Enterprise subscription).
 2. **Name** it something like: `Solo 5e Fantasy DM`.
 3. In the **Project Instructions** box, paste the entire content of:
 
@@ -85,7 +85,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 | File | What it contains | When it's needed |
 |---|---|---|
 | `gpt-instructions.md` / `claude-instructions.md` | Critical rules reinforcement, Session Zero trigger, meta-talk, on-demand commands | Every turn |
-| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 16 worked examples | Every turn during play |
+| `dm-core-rules.md` | Format, flows, secrets, combat, scene transitions, hazards, NPC rules, conditions, interaction rules, 18 worked examples | Every turn during play |
 | `dm-session-zero.md` | Session Zero flow, beginner/experienced mode, character creation, party building, premise summary | Start of campaign; also referenced for mid-campaign companion replacement |
 | `dm-campaign-ops.md` | Leveling (including multiclass), subclass timing, loot, travel, rests, world advancement, in-world time, token management, `output for new thread` | Periodically |
 
@@ -93,7 +93,7 @@ The rules are split across multiple files per platform, designed for maintainabi
 
 - On **ChatGPT**, Knowledge files use retrieval (RAG) — the system searches for relevant chunks per turn. Splitting means Session Zero content doesn't pollute combat retrieval, and related rules stay together for coherent chunk pulls.
 - On **Claude**, all Project Knowledge is loaded into full context every turn. The split still helps with organization and maintainability — but every rule is visible to the model at all times regardless.
-- On **both platforms**, the instructions file carries the 11 rules most likely to conflict with default model behavior (NPC agency, action chains, hidden rolls, etc.) as reinforcement that's always present.
+- On **both platforms**, the instructions file carries the 12 rules most likely to conflict with default model behavior (NPC agency, action chains, hidden rolls, concentration save prompting, etc.) as reinforcement that's always present.
 
 ---
 
@@ -191,7 +191,7 @@ The **`output for new thread`** command makes the DM emit a structured **Campaig
 docs/
 ├── gpt-instructions.md        # ChatGPT Instructions box
 ├── claude-instructions.md      # Claude Project Instructions
-├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 16 worked examples
+├── dm-core-rules.md            # Format, flows, combat, NPCs, conditions, 18 worked examples
 ├── dm-session-zero.md          # Session Zero, character creation, party building
 └── dm-campaign-ops.md          # Leveling, loot, travel, rests, world advancement, thread export
 ```
@@ -208,14 +208,14 @@ docs/
 
 ## Worked Examples
 
-`dm-core-rules.md` includes 16 annotated examples that the model uses for style pattern-matching:
+`dm-core-rules.md` includes 18 annotated examples that the model uses for style pattern-matching:
 
 | # | Scenario | Demonstrates |
 |---|---|---|
 | 1 | Social / investigation scene | Flow A auto-roll, Flow C passive reveal, choice menu |
 | 2 | Combat with action economy | Combat block, initiative, surprise, action labels |
 | 2b | Death saves | Death save prompt, tracker format |
-| 3 | Intrigue / romantic tension | Scene establishment, NPC appearance, sensory grounding |
+| 3 | Intrigue / romantic tension | Scene establishment, NPC appearance, sensory grounding (Flow B Insight) |
 | 4 | Travel with surveillance | Travel time, tailing check, risky route options |
 | 4b | Flow C failure | Passive check fails — hidden detail omitted entirely, no hints |
 | 5 | NPC death consequences | Faction clocks, quest threads, reputation tracking |
@@ -228,6 +228,8 @@ docs/
 | 11 | Flow B failure | Prompted roll fails, consequence narration, updated choices reflect failure |
 | 12 | NPC social secret (Category 2) | NPC Insight vs PC passive Deception, behavioral shift, no visible mechanic |
 | 13 | Opportunity attack and Disengage | PC movement warning, Disengage option, enemy OA prompt |
+| 14 | Beginner-mode combat | Formula-showing, mechanics explained on first use, tactical hint as environmental narration |
+| 15 | Environmental hazard (trap) | Passive Perception detection, Flow B disarm, failure consequences, exploration → combat transition |
 
 ---
 

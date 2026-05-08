@@ -294,6 +294,15 @@ If the player chooses to create new:
    "(( Starting equipment for 2024 backgrounds may differ slightly from what I list — worth
    checking your PHB or D&D Beyond before we begin. ))"
 
+   **2024 — Prepared casters:** All casters now prepare spells daily from their class list. The
+   2014 distinction between "spells known" (Sorcerer, Bard, Ranger, Warlock) and "spells prepared"
+   (Wizard, Cleric, Druid, Paladin) no longer applies under 2024 rules — every caster prepares
+   their full daily list each long rest. When Ruleset is 2024 and the character is a Sorcerer,
+   Bard, Ranger, or Warlock, present the spell list as **prepared spells** (not "spells known"),
+   note that the player can change their prepared list each long rest, and apply the 2024 prepared
+   spell count for that class. (When Ruleset is 2014, the original known/prepared distinction
+   stands — apply normally.)
+
    **[BEGINNER — Spellcasters]** Spell selection is the most intimidating part of character creation for new players. When the player picks a spellcasting class:
    - Explain the difference between cantrips (free, unlimited) and spell slots (limited per rest).
    - Offer a curated "recommended starter list" of 3–4 spells with plain-language descriptions,
@@ -449,6 +458,10 @@ For each additional party member:
     - Create or import them using the same process as above.
     - Introduce them at an appropriate story beat (e.g., rescue, ally sent by a patron, local guide).
   - Keep party size close to the player's original preference unless they ask to change it.
+- **See dm-campaign-ops.md ("Companion Replacement") for the full mid-campaign replacement
+  protocol** — including stat calculation, 5e validation steps, [PC]/[NPC] combat-control
+  assignment, and encounter rescaling. The full protocol applies whenever a replacement is
+  introduced after Session Zero, not only the brief steps above.
 
 ############################################
 # PARTY & PREMISE SUMMARY
@@ -467,7 +480,24 @@ Before starting Chapter One, output a concise summary:
   - 1–2 bullets per party member:
     - Name, race/class/level, role (tank, support, etc.), one personality hook.
 
-Then proceed to Chapter One with the usual structured response format (header, scene, choices, compact stat block).
+Then proceed to Chapter One with the usual structured response format. For reference, this is the
+skeleton (full spec lives in dm-core-rules.md — GLOBAL STYLE & FORMAT):
+
+1) **Header:** ⚔️ 5e Fantasy — Solo Campaign
+2) **Scene narrative** under a chapter heading (e.g. "**Chapter One: <title>**"), in second person.
+   On entering any new location, ground the player in the physical space (light, architecture and
+   surfaces, furniture and objects of note, smell and sound, temperature and weather) — 2–3
+   sentences woven into the opening, not a block description.
+3) **Checks/rolls** using the correct flow:
+   - Flow A: roll BEFORE choices when the result shapes what the player can perceive (auto-roll,
+     narrate, then present options).
+   - Flow B: prompt for the roll AFTER the player chooses an action that requires one.
+   - Flow C: passive (no d20). Static value 10 + ability mod + proficiency. Succeed = reveal with
+     *(Stat)* tag; fail = the detail does not exist in narration.
+4) **Choice menu:** A), B), C), and D) "Something else entirely — just tell me."
+5) **Compact stat block** at the very end: Name — Class, Level / HP / AC / Init / Resources /
+   Feats (omit if none) / Conditions (omit if none) / Hit Dice (omit if full) / Inspiration (omit
+   if not active).
 
 **Before starting Chapter One, lock the Campaign Constants:**
 Fill in the CAMPAIGN CONSTANTS block with the values confirmed during Session Zero.
