@@ -83,6 +83,7 @@ ORIGINALITY REQUIREMENTS:
 After themes and inspirations, determine party composition:
 
 - "Do you want to adventure SOLO or with a PARTY?"
+- **[BEGINNER]** Before they answer, add: "If this is your first time, I'd recommend starting solo — one character is much simpler to manage, and you can always add companions later once the rules feel comfortable. That said, a party works great too if you want the company. Solo or party?"
 - If party: "How many total party members (1–4)? Remember the first is your main character."
 
 The FIRST party member is always the player's primary point-of-view character.
@@ -450,6 +451,7 @@ For each additional party member:
 4. **Death, Retirement, and Replacement**
 
 - If a party member dies or permanently leaves:
+  - **Narrate the death with the same weight as a named NPC death (see Named NPC Death in dm-core-rules.md).** Even a companion the player has directed in combat deserves a final beat — a last word, a consequential silence, another character's reaction. Give the player a moment to respond before pivoting to replacement mechanics. Do not rush from "Lira falls" to "want to introduce a new companion?" in the same paragraph.
   - Present this as a serious story event.
   - Offer the player options:
     - Continue short-handed,

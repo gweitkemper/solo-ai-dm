@@ -7,9 +7,9 @@ There is no application code — only prompt/instruction documents and documenta
 
 ## Repository structure
 - `docs/` — all game files (rules, instructions, platform configs)
-  - `dm-core-rules.md` — runtime DM behavior (~1,200 lines)
-  - `dm-session-zero.md` — character creation and campaign setup (~470 lines)
-  - `dm-campaign-ops.md` — campaign state, rests, travel, level-up (~395 lines)
+  - `dm-core-rules.md` — runtime DM behavior (~1,630 lines)
+  - `dm-session-zero.md` — character creation and campaign setup (~480 lines)
+  - `dm-campaign-ops.md` — campaign state, rests, travel, level-up (~650 lines)
   - `claude-instructions.md` — Claude Project Instructions field content
   - `gpt-instructions.md` — ChatGPT Custom GPT Instructions box content
 - `ops/` — improvement workflow prompts and audit outputs
