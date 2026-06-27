@@ -107,7 +107,7 @@ Three ways to trigger:
 
 | Method | How | When to use |
 |--------|-----|-------------|
-| **Scheduled** | Automatic — every Monday 9am CT | Ongoing quality baseline |
+| **Scheduled** | Automatic — first Friday of each month, 9am CT | Ongoing quality baseline |
 | **Label** | Create issue, add `audit` label | After a big edit pass or playtest |
 | **Manual** | Repo → Actions → "AI DM Audit" → Run workflow | Any time |
 
@@ -240,13 +240,18 @@ for public repos, which is more than enough).
 
 ## Adjusting the Schedule
 
-The audit runs every Monday at 9am CT by default. To change it, edit the cron
-expression in `.github/workflows/audit.yml`:
+The audit runs on the first Friday of each month at 9am CT by default. To change it,
+edit the cron expression in `.github/workflows/audit.yml`:
 
 ```yaml
 schedule:
-  - cron: '0 14 1,15 * *'  # 1st and 15th of each month at 9am CT
+  - cron: '0 14 1-7 * 5'   # first Friday of each month at 9am CT (14:00 UTC / CDT)
+  # - cron: '0 14 * * 5'   # every Friday at 9am CT
+  # - cron: '0 14 1,15 * *' # 1st and 15th of each month at 9am CT
 ```
+
+Note: cron runs at 14:00 UTC, which is 9am CDT (Mar–Nov) and 8am CST (Nov–Mar).
+Cron has no DST awareness — this is the standard tradeoff for CT schedules.
 
 To disable scheduled runs entirely, remove the `schedule` trigger and keep only
 `issues` and `workflow_dispatch`.

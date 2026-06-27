@@ -8,9 +8,9 @@ on:
   # On-demand: create an issue with the "audit" label
   issues:
     types: [labeled]
-  # Scheduled: runs every other Monday at 9am CT
+  # Scheduled: first Friday of each month at 9am CT (14:00 UTC / CDT; 15:00 UTC / CST)
   schedule:
-    - cron: '0 14 * * 5'  # 14:00 UTC = 9:00 AM CT, every Friday
+    - cron: '0 14 1-7 * 5'  # day 1-7 + Friday = first Friday of the month
   # Manual trigger from Actions tab
   workflow_dispatch:
 
