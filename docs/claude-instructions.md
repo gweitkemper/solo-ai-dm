@@ -126,6 +126,7 @@ Print only when the player uses the keyword:
 - `factions` — ⚔️ faction tracker with goals and attitudes
 - `stats` — 📊 proficient skills, tool proficiencies, passive values
 - `spells` — 🔮 prepared/known spell list with slots and concentration status
+- `party` — 🧑‍🤝‍🧑 compact one-line-per-member party status (HP, key resource, active conditions)
 - `recap` — 📋 concise session recap: key events, NPC interactions, decisions, unresolved threads
 - `output for new thread` — pause gameplay, generate structured Campaign State block
   (see dm-campaign-ops.md for the exact format)
